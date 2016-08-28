@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.raj.sample.springlatest</groupId>
+	<artifactId>springlatest-parent</artifactId>
+	<name>springlatest-parent</name>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<properties>
+		<java.version>1.6</java.version>
+		<spring.version>3.2.7.RELEASE</spring.version>
+		<maven.version.range>[2.2.1,3.1.0,4.0.0)</maven.version.range>
+		<maven.tomcat.plugin>2.1</maven.tomcat.plugin>
+		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.11</logback.version>
+		<db-hsqldb.version>2.3.0</db-hsqldb.version>
+	</properties>
+	<dependencies>
+		<!--Spring Dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- required for getting spring working with JPA\Hibernate -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- required for getting spring working with JPA repositories -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.stream</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- SLF4J - logging api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- Interceptor for Commons-logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- Interceptor for java.util.logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<!-- Logback - logging impl -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<!-- JPA dependencies -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+		<!-- Adding Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<!-- DB connection pooling for production applications -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- Test dependencies -->
+		<!--JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!--Mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.8.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-junit4</artifactId>
+			<version>2.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${db-hsqldb.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.0</version>
+					<executions>
+						<execution>
+							<id>enforce-banned-dependencies</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<bannedDependencies>
+										<excludes>
+											<exclude>commons-logging</exclude>
+											<exclude>org.springframework:2.*</exclude>
+											              
+											<exclude>org.springframework:3.0.*</exclude>
+										</excludes>
+									</bannedDependencies>
+									  
+									<requireMavenVersion>
+										            
+										<version>${maven.version.range}</version>
+										          
+									</requireMavenVersion>
+									          
+									<requireJavaVersion>
+										             
+										<version>${java.version}</version>
+										          
+									</requireJavaVersion>
+								</rules>
+								<fail>true</fail>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+						<packagingExcludes>**/*.xmi</packagingExcludes>
+						<warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
+						<webResources>
+							<resource>
+								<directory>${basedir}/src/main/webapp/</directory>
+								<includes>
+									<include>css/*</include>
+									<include>img/*</include>
+									<include>js/*</include>
+									<include>index.html</include>
+								</includes>
+							</resource>
+							<resource>
+								<!-- This is to copy the tld files to META-INF foldery -->
+								<directory>${basedir}/src/main/webapp/WEB-INF/tld</directory>
+								<includes>
+									<include>*.tld</include>
+								</includes>
+								<targetPath>META-INF</targetPath>
+							</resource>
+						</webResources>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+				<!--source level should be 1.7 (which is not Maven default) for java 
+					EE 7 projects, so let's change it -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.0</version>
+					<configuration>
+						<url>http://localhost:8080/spring</url>
+						<server>my-tomcat</server>
+						<path>/spring</path>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<configuration>
+						<wtpdefaultserver>WebSphere Application Server v6.1</wtpdefaultserver>
+						<wtpversion>2.0</wtpversion>
+						<wtpmanifest>true</wtpmanifest>
+						<ajdtVersion>none</ajdtVersion>
+					</configuration>
+				</plugin>
+				<!-- Plugin for report -->
+				<!-- JUnit test report -->
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.6</version>
+
+					<configuration>
+						<!-- the working directory for running unit tests in Maven is default 
+							'${basedir}'; instead we will use '${basedir}/target/test-classes' to prevent 
+							polluting our base dir (i.e. with .log files etc). -->
+						<workingDirectory>${project.build.testOutputDirectory}</workingDirectory>
+						<!-- <skip>true</skip> Enabling this will permanently SKIP the execution 
+							of test -->
+						<!-- <includes> <include></include> </includes> <excludes> <exclude></exclude> 
+							</excludes> surefire includes all files ends with /*Test.java and /*TestCase.java -->
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<!-- This plugin is used to inform your users of the changes that have 
+					occured between different releases of your project. The plugin can extract 
+					these changes, either from a changes.xml file or from the JIRA issue management 
+					system, and present them as a report. You also have the option of creating 
+					a release announcement and even sending this via email to your users. -->
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<instrumentation>
+						<excludes>
+							<!-- <exclude>com/klm/commercial/dd/**/SessionHelper.class</exclude> -->
+						</excludes>
+					</instrumentation>
+					<!-- <rulesets> <ruleset>/rulesets/basic.xml</ruleset> <ruleset>/rulesets/design.xml</ruleset> 
+						</rulesets> -->
+					<check>
+						<branchRate>85</branchRate>
+						<lineRate>85</lineRate>
+						<haltOnFailure>true</haltOnFailure>
+						<totalBranchRate>85</totalBranchRate>
+						<totalLineRate>85</totalLineRate>
+						<packageLineRate>85</packageLineRate>
+						<packageBranchRate>85</packageBranchRate>
+						<!-- <regexes> <regex> <pattern>com.klm.commercial.dd.*</pattern> <branchRate>90</branchRate> 
+							<lineRate>80</lineRate> </regex> </regexes> -->
+					</check>
+					<executions>
+						<execution>
+							<id>clean</id>
+							<phase>pre-site</phase>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>instrument</id>
+							<phase>site</phase>
+							<goals>
+								<goal>instrument</goal>
+								<goal>cobertura</goal>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<!-- The JXR Plugin produces a cross-reference of the project's sources. 
+					The generated reports make it easier for the user to reference or find specific 
+					lines of code. It is also handy when used with the PMD Plugin for referencing 
+					errors found in the code. -->
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<linkXref>true</linkXref>
+					<targetJdk>1.7</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.7.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

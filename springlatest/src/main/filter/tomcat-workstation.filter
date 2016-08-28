@@ -1,0 +1,27 @@
+#####################################################################
+############### Filter for workstation configurations file #################
+#####################################################################
+filter.logback.file_location=C:/data/waslogs/caps
+
+### CAPS DB connection ###
+filter.jpa.showSql=true
+filter.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+filter.hibernate.hbm2ddl.auto=validate
+#filter.hibernate.query.cache=false
+#filter.hibernate.second.level.cache=false
+filter.hibernate.jdbc.scrollable.resultset=false
+filter.hibernate.bytecode.reflection.optimizer=true
+filter.hibernate.jdbc.streams.for.binary=true
+filter.hibernate.jdbc.fetch_size=300
+
+filter.hibernate.format.sql=true
+filter.hibernate.generate.statistics=true
+filter.hibernate.sql.comments=true
+filter.hibernate.show.sql=true
+
+# DataSource jdbc/caps
+filter.capsDataSource.driverClassName = oracle.jdbc.driver.OracleDriver
+filter.capsDataSource.url = jdbc:oracle:thin:@172.20.255.124:1521:orcl
+filter.capsDataSource.username = caps_o
+filter.capsDataSource.password = klmtcs
+

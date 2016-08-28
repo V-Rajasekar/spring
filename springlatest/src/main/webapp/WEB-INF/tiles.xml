@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<!-- Below one is the base layout, The other layout inherits from base layout 
+		and can override the attributes like title, content -->
+	<definition name="baseLayout" template="/WEB-INF/jsp/layout/layout.jsp">
+		<put-attribute name="pageid" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/includes/header.jspf" />
+		<put-attribute name="title" value="Spring Web Demo" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="filter" value="" />
+		<!-- <put-attribute name="navigation" value="/jsp/layout/navigation.jsp" 
+			/> -->
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/includes/footer.jspf" />
+	</definition>
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="pageid" value="login" />
+		<put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+	<definition name="register" extends="baseLayout">
+		<put-attribute name="title" value="Add Contact" />
+		<put-attribute name="pageid" value="Add Contact" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/register.jsp" />
+	</definition>
+	<definition name="viewEmployeeList" extends="baseLayout">
+		<put-attribute name="title" value="Add Contact" />
+		<put-attribute name="pageid" value="Add Contact" />
+		<put-attribute name="content" value="/WEB-INF/jsp/employeeList.jsp" />
+	</definition>
+	<definition name="welcome" extends="baseLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="pageid" value="Welcome" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/welcome.jsp" />
+	</definition>
+
+	<!-- Search Airway Bill Page -->
+	<definition name="searchAirwayBill" extends="baseLayout">
+		<put-attribute name="title" value="Search Airway Bill" />
+		<put-attribute name="content" value="/WEB-INF/jsp/searchAirwayBill.jspf" />
+	</definition>
+</tiles-definitions>

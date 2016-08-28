@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> 
+		<appender name="FILE" class="ch.qos.logback.core.FileAppender"> -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>springlatest_application.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+		</rollingPolicy>
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%-5p %d %c{1} - %t - %X{id} %m%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="com.raj.spring" level="DEBUG" additivity="false">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<appender-ref ref="FILE" />
+	</logger>
+	<root level="DEBUG">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<appender-ref ref="FILE" />
+	</root>
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+	</root>
+</configuration> 
